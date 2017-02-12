@@ -6,12 +6,12 @@
             <h1>Registered Client</h1>
             <div class="list-group">
                 {% for client in clients %}
-                    <a href="#" class="list-group-item active">
+                    <div class="list-group-item active">
                         <h4 class="list-group-item-heading">{{ client.client_name }}</h4>
                         <p class="list-group-item-text"><b>client id:</b> {{ client.client_id }}</p>
                         <p class="list-group-item-text"><b>client secret:</b> {{ client.client_secret }}</p>
                         <br>
-                    </a>
+                    </div>
                 {% endfor %}
             </div>
 
