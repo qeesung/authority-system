@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  {% if user %}
+    <p>You are <b>{{ user.username }}</b> and email is <b>{{ user.email }}</b></p>
+  {% else %}
+    <p>You are not authenticated</p>
+  {% endif %}
+</body>
+</html>
