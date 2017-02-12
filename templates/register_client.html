@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div style=" display: flex; justify-content: center;">
+        <div style="display: inline-block">
+            {{ super() }}
+            <h1>Register a new client</h1>
+            <div class="input-group">
+                <form method="post" action="/register_client">
+                    <input type="text" class="form-control"  name='client_name' placeholder="Client name" aria-describedby="client name">
+                    <textarea class="form-control"  name='client_des' placeholder="Client description" aria-describedby="client description"></textarea>
+                    <input type="text" class="form-control"  name='callback_uri' placeholder="callback url" aria-describedby="callback url">
+                    <button type="submit" class="btn btn-default" style="float: right">register</button>
+                </form>
+            </div>
+            <div style="text-align: center">
+                <a href="/login">< back to login</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
