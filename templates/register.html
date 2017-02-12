@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div style=" display: flex; justify-content: center;">
+        <div style="display: inline-block">
+            {{ super() }}
+            <h1>Register a new user</h1>
+            <div class="input-group">
+                <form method="post" action="/register">
+                    <input type="text" class="form-control"  name='username' placeholder="Username" aria-describedby="username">
+                    <input type="email" class="form-control"  name='email' placeholder="Email" aria-describedby="email address">
+                    <input type="password" class="form-control"  name='password' placeholder="Password" aria-describedby="password">
+                    <button type="submit" class="btn btn-default" style="float: left"><a href="/login">< back to login</a></button>
+                    <button type="submit" class="btn btn-default" style="float: right">register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
