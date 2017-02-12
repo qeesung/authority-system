@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  {% if user %}
-    <p>You are <b>{{ user.username }}</b> and email is <b>{{ user.email }}</b></p>
-  {% else %}
-    <p>You are not authenticated</p>
-  {% endif %}
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block body %}
+    <div style=" display: flex; justify-content: center;">
+        <div style="display: inline-block">
+            <div style="display: flex; justify-content: space-between;">
+                <div>
+                    <a href="/" type="button" class="btn btn-default">
+                        home
+                    </a>
+                </div>
+                <div>
+                    {% if user %}
+                        <a type="button" class="btn btn-default" href="/logout">logout</a>
+                    {% else %}
+                        <a type="button" class="btn btn-default" href="/login">login</a>
+                    {% endif %}
+                </div>
+            </div>
+            {{ super() }}
+            <div class="well">
+                {% if user %}
+                    <p>You are <b>{{ user.username }}</b> and email is <b>{{ user.email }}</b></p>
+                {% else %}
+                    <p>You are not authenticated</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
