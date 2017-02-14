@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div style=" display: flex; justify-content: center;">
+        <div style="display: inline-block">
+            {{ super() }}
+            <h1>Authorized Applications</h1>
+            <div class="list-group">
+                {% for _app in apps %}
+                    <div class="list-group-item active">
+                        <h4 class="list-group-item-heading">{{ clients[_app.client_id]}}</h4>
+                        <p class="list-group-item-text"><b>access token:</b> {{_app.access_token}}</p>
+                        <p class="list-group-item-text"><b>refresh token:</b> {{_app.refresh_token}}</p>
+                        <br>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <div style="text-align: center">
+                    <a href="/">< home</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

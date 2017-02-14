@@ -227,6 +227,19 @@ def register_client():
     return render_template('register_client.html')
 
 
+@app.route('/authorized_app')
+def authorized_app():
+    user = current_user()
+    if not user:
+        return redirect('/')
+    applications = Token.query.filter_by(user_id=user.id).all()
+    clients = {}
+    for _app in applications:
+        _client = Client.query.filter_by(client_id=_app.client_id).first()
+        clients[_app.client_id] = _client.client_name
+    return render_template('authorized_app.html', apps=applications, clients=clients)
+
+
 @oauth.clientgetter
 def load_client(client_id):
     return Client.query.filter_by(client_id=client_id).first()
